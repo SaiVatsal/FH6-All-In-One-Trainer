@@ -1,33 +1,35 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <!-- Vatsal: Visual styling for sidebar navigation items; existing bindings and commands remain unchanged. -->
+
     <!-- Sidebar nav button -->
     <Style Selector="Button.nav-item">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="{DynamicResource TextSecondary}" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="2,0,0,0" />
-        <Setter Property="Width" Value="44" />
-        <Setter Property="Height" Value="40" />
+        <Setter Property="Width" Value="42" />
+        <Setter Property="Height" Value="38" />
         <Setter Property="Padding" Value="0" />
-        <Setter Property="CornerRadius" Value="0,6,6,0" />
+        <Setter Property="CornerRadius" Value="7" />
         <Setter Property="HorizontalAlignment" Value="Center" />
     </Style>
 
-    <Style Selector="Button.nav-item:pointerover">
+    <Style Selector="Button.nav-item:pointerover /template/ ContentPresenter#PART_ContentPresenter">
         <Setter Property="Background" Value="{DynamicResource Surface2Brush}" />
         <Setter Property="Foreground" Value="{DynamicResource TextPrimary}" />
     </Style>
 
-    <Style Selector="Button.nav-item:pressed">
+    <Style Selector="Button.nav-item:pressed /template/ ContentPresenter#PART_ContentPresenter">
         <Setter Property="Background" Value="{DynamicResource Surface3Brush}" />
     </Style>
 
-    <!-- Selected state (IsEnabled=false) -->
-    <Style Selector="Button.nav-item:disabled">
+    <!-- Selected state (IsEnabled=false indicates active page) -->
+    <Style Selector="Button.nav-item:disabled /template/ ContentPresenter#PART_ContentPresenter">
         <Setter Property="Foreground" Value="{DynamicResource AccentBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="{DynamicResource Surface2Brush}" />
     </Style>
 
 </Styles>

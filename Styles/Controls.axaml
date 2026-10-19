@@ -1,22 +1,24 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <!-- Vatsal: Visual styling for glassmorphic cards, compact buttons, and unified inputs; existing bindings remain unchanged. -->
+
     <!-- Card container -->
     <Style Selector="Border.card">
         <Setter Property="Background" Value="{DynamicResource Surface1Brush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SurfaceBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="CornerRadius" Value="8" />
         <Setter Property="Padding" Value="16" />
     </Style>
 
-    <!-- Hero card (for Quick Start / Unlock Everything) -->
+    <!-- Hero card (Quick Start / Unlock Everything) -->
     <Style Selector="Border.hero-card">
         <Setter Property="Background" Value="{DynamicResource Surface1Brush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource AccentBrushMuted}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SurfaceBorderHighlightBrush}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="10" />
-        <Setter Property="Padding" Value="20,16" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="Padding" Value="16" />
     </Style>
 
     <!-- Primary action button -->
@@ -25,7 +27,7 @@
         <Setter Property="Foreground" Value="White" />
         <Setter Property="FontWeight" Value="SemiBold" />
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="Padding" Value="16,8" />
+        <Setter Property="Padding" Value="14,7" />
         <Setter Property="CornerRadius" Value="6" />
     </Style>
     <Style Selector="Button.primary:pointerover /template/ ContentPresenter#PART_ContentPresenter">
@@ -37,7 +39,7 @@
 
     <!-- Ghost button -->
     <Style Selector="Button.ghost">
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="{DynamicResource SurfaceGlassBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource TextPrimary}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SurfaceBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
@@ -47,22 +49,51 @@
     </Style>
     <Style Selector="Button.ghost:pointerover /template/ ContentPresenter#PART_ContentPresenter">
         <Setter Property="Background" Value="{DynamicResource Surface2Brush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource AccentBrushMuted}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SurfaceBorderHighlightBrush}" />
+    </Style>
+    <Style Selector="Button.ghost:pressed /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource Surface3Brush}" />
     </Style>
 
     <!-- Small ghost button for inline actions -->
     <Style Selector="Button.ghost-sm">
-        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Background" Value="{DynamicResource SurfaceGlassBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource TextSecondary}" />
         <Setter Property="BorderBrush" Value="{DynamicResource SurfaceBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="FontSize" Value="10" />
         <Setter Property="Padding" Value="8,4" />
-        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="CornerRadius" Value="5" />
     </Style>
     <Style Selector="Button.ghost-sm:pointerover /template/ ContentPresenter#PART_ContentPresenter">
         <Setter Property="Background" Value="{DynamicResource Surface2Brush}" />
         <Setter Property="Foreground" Value="{DynamicResource TextPrimary}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SurfaceBorderHighlightBrush}" />
+    </Style>
+    <Style Selector="Button.ghost-sm:pressed /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource Surface3Brush}" />
+    </Style>
+
+    <!-- Consistent text input fields -->
+    <Style Selector="TextBox">
+        <Setter Property="Background" Value="{DynamicResource SurfaceInputBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimary}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SurfaceBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="5" />
+        <Setter Property="Padding" Value="6,4" />
+    </Style>
+    <Style Selector="TextBox:focus /template/ Border#PART_BorderElement">
+        <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Background" Value="{DynamicResource SurfaceInputBrush}" />
+    </Style>
+
+    <!-- Dropdown combos -->
+    <Style Selector="ComboBox">
+        <Setter Property="Background" Value="{DynamicResource SurfaceInputBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SurfaceBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="5" />
     </Style>
 
     <!-- Toggle switch — hide text, keep compact -->
@@ -74,6 +105,7 @@
     <!-- Accent palette swatch -->
     <Style Selector="Border.accentSwatch">
         <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="CornerRadius" Value="999" />
     </Style>
     <Style Selector="Border.accentSwatch.selected">
         <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />

@@ -1,11 +1,13 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <!-- Window chrome -->
+    <!-- Vatsal: Configured native transparency hints with clean dark fallback, plus refined typography hierarchy -->
+    <!-- Window chrome & backdrop -->
     <Style Selector="Window">
-        <Setter Property="Background" Value="{DynamicResource Surface0Brush}" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="FontFamily" Value="Inter, $Default" />
-        <Setter Property="TransparencyLevelHint" Value="None" />
+        <Setter Property="TransparencyLevelHint" Value="Mica, AcrylicBlur, Blur, Transparent, None" />
+        <Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource Surface0FallbackBrush}" />
     </Style>
 
     <!-- Default text -->
@@ -15,19 +17,19 @@
     </Style>
 
     <Style Selector="TextBlock.h1">
-        <Setter Property="FontSize" Value="28" />
-        <Setter Property="FontWeight" Value="Bold" />
-        <Setter Property="LetterSpacing" Value="-0.5" />
-    </Style>
-
-    <Style Selector="TextBlock.h2">
-        <Setter Property="FontSize" Value="20" />
+        <Setter Property="FontSize" Value="24" />
         <Setter Property="FontWeight" Value="SemiBold" />
         <Setter Property="LetterSpacing" Value="-0.3" />
     </Style>
 
+    <Style Selector="TextBlock.h2">
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="LetterSpacing" Value="-0.2" />
+    </Style>
+
     <Style Selector="TextBlock.h3">
-        <Setter Property="FontSize" Value="15" />
+        <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="SemiBold" />
     </Style>
 
@@ -44,15 +46,15 @@
     <!-- Section label inside cards -->
     <Style Selector="TextBlock.section-header">
         <Setter Property="FontSize" Value="10" />
-        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="FontWeight" Value="SemiBold" />
         <Setter Property="Foreground" Value="{DynamicResource TextDim}" />
-        <Setter Property="LetterSpacing" Value="1.5" />
+        <Setter Property="LetterSpacing" Value="1.2" />
         <Setter Property="Margin" Value="0,0,0,8" />
     </Style>
 
     <!-- Page title in header bar -->
     <Style Selector="TextBlock.page-title">
-        <Setter Property="FontSize" Value="18" />
+        <Setter Property="FontSize" Value="16" />
         <Setter Property="FontWeight" Value="SemiBold" />
         <Setter Property="LetterSpacing" Value="-0.2" />
     </Style>
@@ -63,10 +65,16 @@
         <Setter Property="Foreground" Value="{DynamicResource TextSecondary}" />
     </Style>
 
-    <!-- Hint text (blue info lines) -->
+    <!-- Application branding subtitle -->
+    <Style Selector="TextBlock.app-subtitle">
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="Foreground" Value="{DynamicResource TextSecondary}" />
+    </Style>
+
+    <!-- Hint text (muted informative lines) -->
     <Style Selector="TextBlock.hint">
         <Setter Property="FontSize" Value="10" />
-        <Setter Property="Foreground" Value="#FF64B5F6" />
+        <Setter Property="Foreground" Value="#8FA6CA" />
     </Style>
 
 </Styles>

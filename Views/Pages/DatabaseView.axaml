@@ -20,10 +20,11 @@
                 </StackPanel>
             </Border>
 
-            <!-- Status -->
+            <!-- Vatsal: Visual styling for database actions; existing bindings and commands remain unchanged. -->
+            <!-- Status banner -->
             <Border IsVisible="{Binding StatusMessage, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                    Padding="10,6" CornerRadius="8" BorderThickness="1"
-                    Background="#1A3DDC97" BorderBrush="#3DDC97">
+                    Padding="12,7" CornerRadius="6" BorderThickness="1"
+                    Background="{DynamicResource StatusOkBg}" BorderBrush="{DynamicResource StatusOk}">
                 <TextBlock Text="{Binding StatusMessage}" FontSize="12"
                            Foreground="{DynamicResource TextPrimary}" TextWrapping="Wrap" />
             </Border>
@@ -133,7 +134,7 @@
             <Border Classes="card">
                 <StackPanel Spacing="8">
                     <TextBlock Text="PHYSICS &amp; PERFORMANCE" Classes="section-header" />
-                    <Border Background="#22FFB347" BorderBrush="{DynamicResource StatusWarn}"
+                    <Border Background="{DynamicResource StatusWarnBg}" BorderBrush="{DynamicResource StatusWarn}"
                             BorderThickness="1" CornerRadius="6" Padding="8,5" Margin="0,0,0,4">
                         <TextBlock FontSize="10" TextWrapping="Wrap"
                                    Foreground="{DynamicResource TextPrimary}"

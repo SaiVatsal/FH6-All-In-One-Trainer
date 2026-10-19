@@ -7,18 +7,21 @@
         CanResize="False"
         WindowStartupLocation="CenterOwner"
         ShowInTaskbar="False"
-        Background="{DynamicResource Surface0Brush}"
+        TransparencyLevelHint="Mica, AcrylicBlur, Blur, Transparent, None"
+        Background="Transparent"
         Icon="/Assets/logo.png">
 
-    <Border Padding="28" BorderBrush="{DynamicResource SurfaceBorderBrush}" BorderThickness="1">
+    <!-- Vatsal: Visual styling for update dialog with dark translucent glass container; event handlers remain unchanged -->
+    <Border Padding="28" Background="{DynamicResource Surface0Brush}"
+            BorderBrush="{DynamicResource SurfaceBorderBrush}" BorderThickness="1" CornerRadius="8">
         <StackPanel Spacing="18">
 
             <!-- Header -->
             <StackPanel Orientation="Horizontal" Spacing="14">
-                <Border Width="48" Height="48" CornerRadius="12"
-                        Background="#1A4DA3FF" BorderBrush="#4DA3FF" BorderThickness="1">
-                    <materialIcons:MaterialIcon Kind="DownloadOutline" Width="26" Height="26"
-                                                Foreground="#7FBFFF"
+                <Border Width="48" Height="48" CornerRadius="10"
+                        Background="{DynamicResource Surface2Brush}" BorderBrush="{DynamicResource SurfaceBorderBrush}" BorderThickness="1">
+                    <materialIcons:MaterialIcon Kind="DownloadOutline" Width="24" Height="24"
+                                                Foreground="{DynamicResource AccentBrush}"
                                                 HorizontalAlignment="Center" VerticalAlignment="Center" />
                 </Border>
                 <StackPanel VerticalAlignment="Center" Spacing="2">

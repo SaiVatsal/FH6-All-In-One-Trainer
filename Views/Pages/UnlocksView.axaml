@@ -28,10 +28,11 @@
                 </StackPanel>
             </Border>
 
-            <!-- Status -->
+            <!-- Vatsal: Visual styling for unlocks page; existing bindings and commands remain unchanged. -->
+            <!-- Status banner -->
             <Border IsVisible="{Binding StatusMessage, Converter={x:Static StringConverters.IsNotNullOrEmpty}}"
-                    Padding="10,6" CornerRadius="8" BorderThickness="1"
-                    Background="#1A3DDC97" BorderBrush="#3DDC97">
+                    Padding="12,7" CornerRadius="6" BorderThickness="1"
+                    Background="{DynamicResource StatusOkBg}" BorderBrush="{DynamicResource StatusOk}">
                 <TextBlock Text="{Binding StatusMessage}" FontSize="12"
                            Foreground="{DynamicResource TextPrimary}" TextWrapping="Wrap" />
             </Border>
@@ -59,7 +60,7 @@
                 <StackPanel Spacing="10">
                     <TextBlock Text="PROFILE VALUES" Classes="section-header" />
 
-                    <Border Background="#1A3DDC97" BorderBrush="#3DDC97" BorderThickness="1" CornerRadius="6" Padding="8,5">
+                    <Border Background="{DynamicResource StatusOkBg}" BorderBrush="{DynamicResource StatusOk}" BorderThickness="1" CornerRadius="6" Padding="8,5">
                         <TextBlock FontSize="11" TextWrapping="Wrap" Foreground="{DynamicResource TextPrimary}"
                                    Text="Toggle ON to enable. The CRC bypass protects these hooks automatically." />
                     </Border>

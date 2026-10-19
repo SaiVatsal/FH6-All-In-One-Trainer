@@ -11,110 +11,132 @@
         x:Class="FH6Mod.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Title="FH6 All-in-One Trainer"
-        Background="{DynamicResource Surface0Brush}"
+        TransparencyLevelHint="Mica, AcrylicBlur, Blur, Transparent, None"
+        Background="Transparent"
         WindowStartupLocation="CenterScreen"
         Icon="/Assets/logo.png">
 
-    <Grid ColumnDefinitions="52,*">
+    <!-- Vatsal: Root container with dark translucent glass background and solid fallback -->
+    <Border Background="{DynamicResource Surface0Brush}"
+            BorderBrush="{DynamicResource SurfaceBorderSubtleBrush}"
+            BorderThickness="1">
+        <Grid ColumnDefinitions="56,*">
 
-        <!-- Sidebar -->
-        <Border Grid.Column="0" Background="{DynamicResource Surface1Brush}"
-                BorderBrush="{DynamicResource SurfaceBorderBrush}" BorderThickness="0,0,1,0">
-            <Grid RowDefinitions="Auto,*,Auto">
-                <!-- Logo -->
-                <Image Source="/Assets/logo.png" Width="24" Height="24"
-                       Margin="0,14,0,4" HorizontalAlignment="Center" />
+            <!-- Sidebar -->
+            <Border Grid.Column="0" Background="{DynamicResource SurfaceGlassBrush}"
+                    BorderBrush="{DynamicResource SurfaceBorderBrush}" BorderThickness="0,0,1,0">
+                <Grid RowDefinitions="Auto,*,Auto">
+                    <!-- Logo -->
+                    <Image Source="/Assets/logo.png" Width="22" Height="22"
+                           Margin="0,16,0,6" HorizontalAlignment="Center" />
 
-                <!-- Nav buttons -->
-                <StackPanel Grid.Row="1" Spacing="4" HorizontalAlignment="Stretch"
-                            VerticalAlignment="Top" Margin="0,12,0,0">
-                    <Button Classes="nav-item"
-                            ToolTip.Tip="Unlocks"
-                            IsEnabled="{Binding !IsUnlocksPage}"
-                            Command="{Binding NavigateToCommand}" CommandParameter="Unlocks">
-                        <mi:MaterialIcon Kind="LockOpenVariantOutline" Width="20" Height="20" />
-                    </Button>
-                    <Button Classes="nav-item"
-                            ToolTip.Tip="Database"
-                            IsEnabled="{Binding !IsDatabasePage}"
-                            Command="{Binding NavigateToCommand}" CommandParameter="Database">
-                        <mi:MaterialIcon Kind="DatabaseEditOutline" Width="20" Height="20" />
-                    </Button>
-                    <Button Classes="nav-item"
-                            ToolTip.Tip="Settings"
-                            IsEnabled="{Binding !IsSettingsPage}"
-                            Command="{Binding NavigateToCommand}" CommandParameter="Settings">
-                        <mi:MaterialIcon Kind="CogOutline" Width="20" Height="20" />
-                    </Button>
-                </StackPanel>
-
-                <!-- Status indicator -->
-                <StackPanel Grid.Row="2" Spacing="4" Margin="0,0,0,12"
-                            HorizontalAlignment="Center">
-                    <Ellipse x:Name="StatusDot" Width="8" Height="8"
-                             Fill="{DynamicResource StatusErr}" />
-                    <TextBlock Text="{Binding GameStatusText}" FontSize="8"
-                               Foreground="{DynamicResource TextDim}"
-                               TextAlignment="Center" TextWrapping="Wrap"
-                               Width="44" />
-                </StackPanel>
-            </Grid>
-        </Border>
-
-        <!-- Content area -->
-        <Grid Grid.Column="1" RowDefinitions="Auto,Auto,*">
-
-            <!-- Header bar -->
-            <Border Grid.Row="0" Padding="20,12"
-                    Background="{DynamicResource Surface0Brush}"
-                    BorderBrush="{DynamicResource SurfaceBorderBrush}" BorderThickness="0,0,0,1">
-                <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
-                    <Panel Grid.Column="0" VerticalAlignment="Center">
-                        <mi:MaterialIcon Kind="LockOpenVariantOutline" Width="22" Height="22"
-                                         Foreground="{DynamicResource AccentBrush}"
-                                         IsVisible="{Binding IsUnlocksPage}" />
-                        <mi:MaterialIcon Kind="DatabaseEditOutline" Width="22" Height="22"
-                                         Foreground="{DynamicResource AccentBrush}"
-                                         IsVisible="{Binding IsDatabasePage}" />
-                        <mi:MaterialIcon Kind="CogOutline" Width="22" Height="22"
-                                         Foreground="{DynamicResource AccentBrush}"
-                                         IsVisible="{Binding IsSettingsPage}" />
-                    </Panel>
-                    <StackPanel Grid.Column="1" Spacing="2">
-                        <TextBlock Text="{Binding PageTitleText}" Classes="page-title" />
-                        <TextBlock Text="{Binding PageSubtitleText}" Classes="page-subtitle" />
+                    <!-- Nav buttons -->
+                    <StackPanel Grid.Row="1" Spacing="4" HorizontalAlignment="Stretch"
+                                VerticalAlignment="Top" Margin="0,10,0,0">
+                        <Button Classes="nav-item"
+                                ToolTip.Tip="Unlocks"
+                                IsEnabled="{Binding !IsUnlocksPage}"
+                                Command="{Binding NavigateToCommand}" CommandParameter="Unlocks">
+                            <mi:MaterialIcon Kind="LockOpenVariantOutline" Width="20" Height="20" />
+                        </Button>
+                        <Button Classes="nav-item"
+                                ToolTip.Tip="Database"
+                                IsEnabled="{Binding !IsDatabasePage}"
+                                Command="{Binding NavigateToCommand}" CommandParameter="Database">
+                            <mi:MaterialIcon Kind="DatabaseEditOutline" Width="20" Height="20" />
+                        </Button>
+                        <Button Classes="nav-item"
+                                ToolTip.Tip="Settings"
+                                IsEnabled="{Binding !IsSettingsPage}"
+                                Command="{Binding NavigateToCommand}" CommandParameter="Settings">
+                            <mi:MaterialIcon Kind="CogOutline" Width="20" Height="20" />
+                        </Button>
                     </StackPanel>
-                    <TextBlock Grid.Column="2" Text="{Binding CurrentVersionText}"
-                               Classes="dim" VerticalAlignment="Center" />
+
+                    <!-- Status indicator & personal branding footer -->
+                    <StackPanel Grid.Row="2" Spacing="5" Margin="0,0,0,12"
+                                HorizontalAlignment="Center">
+                        <Ellipse x:Name="StatusDot" Width="8" Height="8"
+                                 Fill="{DynamicResource StatusErr}" />
+                        <TextBlock Text="{Binding GameStatusText}" FontSize="8"
+                                   Foreground="{DynamicResource TextDim}"
+                                   TextAlignment="Center" TextWrapping="Wrap"
+                                   Width="46" />
+                        <!-- Vatsal: Optional small footer branding -->
+                        <TextBlock Text="Vatsal" FontSize="9" FontWeight="Medium"
+                                   Foreground="{DynamicResource TextDim}"
+                                   Opacity="0.75"
+                                   TextAlignment="Center" Margin="0,2,0,0"
+                                   ToolTip.Tip="FH6 Trainer UI by Vatsal" />
+                    </StackPanel>
                 </Grid>
             </Border>
 
-            <!-- Not-attached banner -->
-            <Border Grid.Row="1" IsVisible="{Binding !IsGameAttached}"
-                    Background="#22FFB347" BorderBrush="{DynamicResource StatusWarn}"
-                    BorderThickness="0,0,0,1" Padding="20,8">
-                <StackPanel Orientation="Horizontal" Spacing="8">
-                    <mi:MaterialIcon Kind="AlertCircleOutline" Width="16" Height="16"
-                                     Foreground="{DynamicResource StatusWarn}" VerticalAlignment="Center" />
-                    <TextBlock Text="Start Forza Horizon 6 and load into the world — cheats unlock once the game is running."
-                               FontSize="12" VerticalAlignment="Center"
-                               Foreground="{DynamicResource TextPrimary}" />
-                </StackPanel>
-            </Border>
+            <!-- Content area -->
+            <Grid Grid.Column="1" RowDefinitions="Auto,Auto,*">
 
-            <!-- Page host — one page visible at a time -->
-            <Grid Grid.Row="2">
-                <Panel IsVisible="{Binding IsUnlocksPage}">
-                    <pages:UnlocksView DataContext="{Binding UnlocksPage}" />
-                </Panel>
-                <Panel IsVisible="{Binding IsDatabasePage}">
-                    <pages:DatabaseView DataContext="{Binding DatabasePage}" />
-                </Panel>
-                <Panel IsVisible="{Binding IsSettingsPage}">
-                    <pages:SettingsView DataContext="{Binding SettingsPage}" />
-                </Panel>
+                <!-- Header bar -->
+                <Border Grid.Row="0" Padding="20,12"
+                        Background="{DynamicResource SurfaceGlassBrush}"
+                        BorderBrush="{DynamicResource SurfaceBorderBrush}" BorderThickness="0,0,0,1">
+                    <Grid ColumnDefinitions="Auto,*,Auto" ColumnSpacing="12">
+                        <Panel Grid.Column="0" VerticalAlignment="Center">
+                            <mi:MaterialIcon Kind="LockOpenVariantOutline" Width="20" Height="20"
+                                             Foreground="{DynamicResource AccentBrush}"
+                                             IsVisible="{Binding IsUnlocksPage}" />
+                            <mi:MaterialIcon Kind="DatabaseEditOutline" Width="20" Height="20"
+                                             Foreground="{DynamicResource AccentBrush}"
+                                             IsVisible="{Binding IsDatabasePage}" />
+                            <mi:MaterialIcon Kind="CogOutline" Width="20" Height="20"
+                                             Foreground="{DynamicResource AccentBrush}"
+                                             IsVisible="{Binding IsSettingsPage}" />
+                        </Panel>
+                        <!-- Vatsal: Header titles with subtle Application Subtitle branding -->
+                        <StackPanel Grid.Column="1" Spacing="2" VerticalAlignment="Center">
+                            <StackPanel Orientation="Horizontal" Spacing="8" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding PageTitleText}" Classes="page-title" />
+                                <TextBlock Text="·" Classes="dim" VerticalAlignment="Center" />
+                                <TextBlock Text="{Binding AppSubtitleText}" Classes="app-subtitle" VerticalAlignment="Center" />
+                            </StackPanel>
+                            <TextBlock Text="{Binding PageSubtitleText}" Classes="page-subtitle" />
+                        </StackPanel>
+                        <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Right" Spacing="2">
+                            <TextBlock Text="{Binding CurrentVersionText}"
+                                       Classes="dim" HorizontalAlignment="Right" />
+                            <Border Background="{DynamicResource Surface2Brush}" CornerRadius="4" Padding="6,2">
+                                <TextBlock Text="FH6 Trainer" FontSize="10" Foreground="{DynamicResource TextDim}" HorizontalAlignment="Right" />
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!-- Not-attached banner: Muted modern alert -->
+                <Border Grid.Row="1" IsVisible="{Binding !IsGameAttached}"
+                        Background="{DynamicResource StatusWarnBg}" BorderBrush="{DynamicResource StatusWarn}"
+                        BorderThickness="0,0,0,1" Padding="20,8">
+                    <StackPanel Orientation="Horizontal" Spacing="8">
+                        <mi:MaterialIcon Kind="AlertCircleOutline" Width="16" Height="16"
+                                         Foreground="{DynamicResource StatusWarn}" VerticalAlignment="Center" />
+                        <TextBlock Text="Start Forza Horizon 6 and load into the world — cheats unlock once the game is running."
+                                   FontSize="12" VerticalAlignment="Center"
+                                   Foreground="{DynamicResource TextPrimary}" />
+                    </StackPanel>
+                </Border>
+
+                <!-- Page host — one page visible at a time -->
+                <Grid Grid.Row="2">
+                    <Panel IsVisible="{Binding IsUnlocksPage}">
+                        <pages:UnlocksView DataContext="{Binding UnlocksPage}" />
+                    </Panel>
+                    <Panel IsVisible="{Binding IsDatabasePage}">
+                        <pages:DatabaseView DataContext="{Binding DatabasePage}" />
+                    </Panel>
+                    <Panel IsVisible="{Binding IsSettingsPage}">
+                        <pages:SettingsView DataContext="{Binding SettingsPage}" />
+                    </Panel>
+                </Grid>
+
             </Grid>
-
         </Grid>
-    </Grid>
+    </Border>
 </Window>

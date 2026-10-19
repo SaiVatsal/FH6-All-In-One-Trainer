@@ -27,47 +27,64 @@
             <conv:HexToBrushConverter        x:Key="HexToBrushConverter" />
             <conv:NotNullConverter           x:Key="NotNullConverter" />
 
+            <!-- Vatsal: Updated visual styling and translucent dark glass surfaces; existing bindings remain unchanged. -->
             <!-- Brand accent -->
             <Color x:Key="AccentColor">#FF6A1F</Color>
             <Color x:Key="AccentColorHover">#FF8845</Color>
             <Color x:Key="AccentColorPressed">#E55400</Color>
-            <Color x:Key="AccentColorMuted">#5C2810</Color>
+            <Color x:Key="AccentColorMuted">#401E0F</Color>
 
             <SolidColorBrush x:Key="AccentBrush" Color="{StaticResource AccentColor}" />
             <SolidColorBrush x:Key="AccentBrushHover" Color="{StaticResource AccentColorHover}" />
             <SolidColorBrush x:Key="AccentBrushPressed" Color="{StaticResource AccentColorPressed}" />
             <SolidColorBrush x:Key="AccentBrushMuted" Color="{StaticResource AccentColorMuted}" />
 
-            <!-- Surfaces -->
-            <Color x:Key="Surface0">#0C0C14</Color>
-            <Color x:Key="Surface1">#141420</Color>
-            <Color x:Key="Surface2">#1C1C2C</Color>
-            <Color x:Key="Surface3">#262638</Color>
-            <Color x:Key="SurfaceBorder">#2A2A3E</Color>
+            <!-- Surfaces: Translucent dark glass palette with solid fallback -->
+            <Color x:Key="Surface0">#EB0B0E17</Color>
+            <Color x:Key="Surface0Fallback">#0E1118</Color>
+            <Color x:Key="Surface1">#59131926</Color>
+            <Color x:Key="Surface1Hover">#731A2234</Color>
+            <Color x:Key="Surface2">#661A2234</Color>
+            <Color x:Key="Surface3">#80232E44</Color>
+            <Color x:Key="SurfaceBorder">#1AFFFFFF</Color>
+            <Color x:Key="SurfaceBorderSubtle">#0DFFFFFF</Color>
+            <Color x:Key="SurfaceBorderHighlight">#2EFFFFFF</Color>
+            <Color x:Key="SurfaceInput">#4D0A0D14</Color>
+            <Color x:Key="SurfaceGlass">#400D111A</Color>
 
             <SolidColorBrush x:Key="Surface0Brush" Color="{StaticResource Surface0}" />
+            <SolidColorBrush x:Key="Surface0FallbackBrush" Color="{StaticResource Surface0Fallback}" />
             <SolidColorBrush x:Key="Surface1Brush" Color="{StaticResource Surface1}" />
+            <SolidColorBrush x:Key="Surface1HoverBrush" Color="{StaticResource Surface1Hover}" />
             <SolidColorBrush x:Key="Surface2Brush" Color="{StaticResource Surface2}" />
             <SolidColorBrush x:Key="Surface3Brush" Color="{StaticResource Surface3}" />
             <SolidColorBrush x:Key="SurfaceBorderBrush" Color="{StaticResource SurfaceBorder}" />
+            <SolidColorBrush x:Key="SurfaceBorderSubtleBrush" Color="{StaticResource SurfaceBorderSubtle}" />
+            <SolidColorBrush x:Key="SurfaceBorderHighlightBrush" Color="{StaticResource SurfaceBorderHighlight}" />
+            <SolidColorBrush x:Key="SurfaceInputBrush" Color="{StaticResource SurfaceInput}" />
+            <SolidColorBrush x:Key="SurfaceGlassBrush" Color="{StaticResource SurfaceGlass}" />
 
-            <!-- Text -->
-            <SolidColorBrush x:Key="TextPrimary" Color="#E8E8F0" />
-            <SolidColorBrush x:Key="TextSecondary" Color="#8888A0" />
-            <SolidColorBrush x:Key="TextDim" Color="#55556A" />
+            <!-- Clean typography contrast -->
+            <SolidColorBrush x:Key="TextPrimary" Color="#F3F4F6" />
+            <SolidColorBrush x:Key="TextSecondary" Color="#9CA3AF" />
+            <SolidColorBrush x:Key="TextDim" Color="#64748B" />
 
-            <!-- Status -->
-            <SolidColorBrush x:Key="StatusOk" Color="#3DDC97" />
-            <SolidColorBrush x:Key="StatusWarn" Color="#FFB347" />
-            <SolidColorBrush x:Key="StatusErr" Color="#FF5C5C" />
+            <!-- Muted status indicators -->
+            <SolidColorBrush x:Key="StatusOk" Color="#34D399" />
+            <SolidColorBrush x:Key="StatusWarn" Color="#FBBF24" />
+            <SolidColorBrush x:Key="StatusErr" Color="#F87171" />
 
-            <!-- Accent gradient -->
+            <SolidColorBrush x:Key="StatusOkBg" Color="#1A34D399" />
+            <SolidColorBrush x:Key="StatusWarnBg" Color="#1AFBBF24" />
+            <SolidColorBrush x:Key="StatusErrBg" Color="#1AF87171" />
+
+            <!-- Subtle accent tint -->
             <LinearGradientBrush x:Key="AccentGradient" StartPoint="0%,0%" EndPoint="100%,100%">
-                <GradientStop Color="#FF6A1F" Offset="0" />
-                <GradientStop Color="#FF3D7A" Offset="1" />
+                <GradientStop Color="#E6FF6A1F" Offset="0" />
+                <GradientStop Color="#B3FF3D7A" Offset="1" />
             </LinearGradientBrush>
 
-            <!-- Season colors -->
+            <!-- Season colors: Muted, modern tones -->
             <SolidColorBrush x:Key="SeasonSpring" Color="#10B981" />
             <SolidColorBrush x:Key="SeasonSummer" Color="#F59E0B" />
             <SolidColorBrush x:Key="SeasonAutumn" Color="#F97316" />

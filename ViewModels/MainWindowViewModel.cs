@@ -27,6 +27,9 @@ public partial class MainWindowViewModel : ViewModelBase
 
     public string CurrentVersionText => $"v{App.Services.GetRequiredService<UpdateCheckService>().CurrentVersion.ToString(3)}";
 
+    // Vatsal: Added application subtitle branding while preserving all existing properties and logic.
+    public string AppSubtitleText => "Customized by Vatsal";
+
     public bool IsUnlocksPage => SelectedPageIndex == 0;
     public bool IsDatabasePage => SelectedPageIndex == 1;
     public bool IsSettingsPage => SelectedPageIndex == 2;

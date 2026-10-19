@@ -70,17 +70,21 @@
                              TextWrapping="Wrap" IsVisible="{Binding ScanStatus, Converter={StaticResource NotNullConverter}}"
                              MaxHeight="180" />
 
+                    <!-- Vatsal: UI styling updated; existing bindings and commands remain unchanged -->
                     <Grid ColumnDefinitions="*,Auto" ColumnSpacing="8">
                         <TextBlock Grid.Column="0" Text="Conflict detection" VerticalAlignment="Center" FontSize="12" />
                         <Button Grid.Column="1" Content="Detect" Classes="primary" Padding="12,4" FontSize="11"
                                 Command="{Binding DetectConflictsCommand}" />
                     </Grid>
-                    <Border IsVisible="{Binding HasConflicts}" Background="#33FF4444" CornerRadius="6" Padding="8,4">
+                    <Border IsVisible="{Binding HasConflicts}" Background="{DynamicResource StatusErrBg}"
+                            BorderBrush="{DynamicResource StatusErr}" BorderThickness="1" CornerRadius="6" Padding="8,5">
                         <TextBlock Text="{Binding ConflictStatus}" TextWrapping="Wrap"
-                                   Foreground="#FF6666" FontFamily="Consolas, Courier New, monospace" FontSize="10" />
+                                   Foreground="{DynamicResource StatusErr}" FontFamily="Consolas, Courier New, monospace" FontSize="10" />
                     </Border>
                     <Border IsVisible="{Binding ConflictStatus, Converter={StaticResource NotNullConverter}}"
-                            Background="{DynamicResource Surface2Brush}" CornerRadius="6" Padding="8,4">
+                            Background="{DynamicResource Surface2Brush}"
+                            BorderBrush="{DynamicResource SurfaceBorderBrush}" BorderThickness="1"
+                            CornerRadius="6" Padding="8,5">
                         <TextBlock Text="{Binding ConflictStatus}" TextWrapping="Wrap"
                                    Foreground="{DynamicResource TextSecondary}"
                                    FontFamily="Consolas, Courier New, monospace" FontSize="10" />
@@ -127,6 +131,10 @@
                     </TextBlock>
                     <TextBlock Classes="dim" TextWrapping="Wrap">
                         Cheats by paris' club · UI by Chaarkor · Improvements by changcheng967 · discord.gg/WSd3bRNJuJ
+                    </TextBlock>
+                    <!-- Vatsal: Personal branding credit in About section -->
+                    <TextBlock Classes="subtle" TextWrapping="Wrap" Margin="0,3,0,0">
+                        <Run Text="UI customization by Vatsal" FontWeight="Medium" Foreground="{DynamicResource TextPrimary}" />
                     </TextBlock>
                     <Button Content="Open settings folder" Classes="ghost-sm"
                             HorizontalAlignment="Left" Margin="0,4,0,0"
